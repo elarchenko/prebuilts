@@ -3,7 +3,7 @@ if [ -z "${CPU_CORES_COUNT}" ]; then
   CPU_CORES_COUNT=`grep -c ^processor /proc/cpuinfo`
 fi
 if [ -z "${OPENAUTO_GIT_REPO}" ]; then
-  OPENAUTO_GIT_REPO='https://github.com/SonOfGib/openauto.git'
+  OPENAUTO_GIT_REPO='https://github.com/elarchenko/openauto.git'
 fi
 # Install Pre-reqs
 sudo apt-get -y install cmake build-essential git
