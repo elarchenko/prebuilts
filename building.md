@@ -36,7 +36,20 @@ mkdir ~/opencardev
 git clone https://github.com/opencardev/prebuilts.git prebuilts
 cd prebuilts/buildsystem
 ./1_prepare_build_system.sh
-./2_build_aasdk.sh
+sudo ./2_build_aasdk.sh
+```
+In case of errors protobuf should be build:
+```bash
+cd aasdk
+cd protobuf
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+```
+Continue with building
+```bash
 ./3_build_ilclient.sh
 ./4_build_qt_latest.sh
 ./5_build_openauto.sh
