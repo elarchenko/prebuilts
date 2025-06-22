@@ -10,6 +10,7 @@ QT_FILENAME=qt-everywhere-src-${QT_FULL_VERSION}.tar.xz
 DEVICE_OPT=linux-rasp-pi3-g++
 if [ -z "${CPU_CORES_COUNT}"]; then
   CPU_CORES_COUNT=`grep -c ^processor /proc/cpuinfo`
+  CPU_CORES_COUNT=1
 fi
 # Lookup for PI version
 PIVERSION=`grep ^Model /proc/cpuinfo` 
@@ -43,7 +44,8 @@ mkdir -p ${HOME}/qt${QT_FILE_VERSION}_build
 # Check source packages
 cd ${HOME}/qt${QT_FILE_VERSION}
 if ! [ -f ${QT_FILENAME} ]; then
-    wget ${QT_URL}${QT_VERSION}/${QT_FULL_VERSION}/single/${QT_FILENAME}
+    # wget ${QT_URL}${QT_VERSION}/${QT_FULL_VERSION}/single/${QT_FILENAME} Unavailable in RU
+    wget https://qt-mirror.dannhauer.de/official_releases/qt/5.15/5.15.1/single/qt-everywhere-src-5.15.1.tar.xz
 fi
 
 # Unpack source
