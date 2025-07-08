@@ -18,22 +18,27 @@
    chmod 644 .ssh/authorized_keys
    chown pi:pi .ssh/authorized_keys
 ```
-4. Update Buster
+4. Configure nameserver
+```bash
+   sudo nano /etc/resolv.conf
+   nameserver 8.8.8.8
+```
+5. Update Buster
 ```bash
     sudo apt update -y
     sudo apt upgrade -y
     sudo apt autoremove -y
 ```
-5. Install Pre-Reqs
+6. Install Pre-Reqs
 ```bash
     sudo apt-get install -y libboost-all-dev libusb-1.0.0-dev libssl-dev cmake libprotobuf-dev protobuf-c-compiler protobuf-compiler 
     libtag1-dev
     sudo apt-get -y install cmake build-essential git
 ```
-6. Setup Build Environment
+7. Setup Build Environment
 ```bash
 mkdir ~/opencardev
-git clone https://github.com/opencardev/prebuilts.git prebuilts
+git clone https://github.com/elarchenko/prebuilts.git prebuilts
 cd prebuilts/buildsystem
 ./1_prepare_build_system.sh
 sudo ./2_build_aasdk.sh
