@@ -60,3 +60,10 @@ cd ..
 cd cam_overlay
 md5sum $(basename cam_overlay.bin) > cam_overlay.bin.md5
 cd ..
+
+cp ./openauto/autoapp /usr/local/bin/autoapp
+cp ./openauto/autoapp.md5 /usr/local/bin/autoapp.md5
+cp ./openauto/autoapp_helper /usr/local/bin/autoapp_helper
+cp ./openauto/autoapp_helper.md5 /usr/local/bin/autoapp_helper.md5
+cp ./openauto/btservice /usr/local/bin/btservice
+cp ./openauto/btservice.md5 /usr/local/bin/btservice.md5
