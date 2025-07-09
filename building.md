@@ -25,15 +25,14 @@
 ```
 5. Update Buster
 ```bash
-    sudo apt update -y
-    sudo apt upgrade -y
-    sudo apt autoremove -y
+   sudo apt update -y
+   sudo apt upgrade -y
+   sudo apt autoremove -y
 ```
 6. Install Pre-Reqs
 ```bash
-    sudo apt-get install -y libboost-all-dev libusb-1.0.0-dev libssl-dev cmake libprotobuf-dev protobuf-c-compiler protobuf-compiler 
-    libtag1-dev
-    sudo apt-get -y install cmake build-essential git
+   sudo apt-get install -y libboost-all-dev libusb-1.0.0-dev libssl-dev cmake libprotobuf-dev protobuf-c-compiler protobuf-compiler libtag1-dev
+   sudo apt-get -y install cmake build-essential git
 ```
 7. Setup Build Environment
 ```bash
@@ -41,16 +40,19 @@ mkdir ~/opencardev
 git clone https://github.com/elarchenko/prebuilts.git prebuilts
 cd prebuilts/buildsystem
 ./1_prepare_build_system.sh
+```
+In case of update request you can try to update once, but can process without it.
+```bash
 sudo ./2_build_aasdk.sh
 ```
 In case of errors protobuf should be build:
 ```bash
 cd aasdk
 cd protobuf
-mkdir build
+sudo mkdir build
 cd build
-cmake ..
-make
+sudo cmake ..
+sudo make
 sudo make install
 ```
 Continue with building
