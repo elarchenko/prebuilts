@@ -1,8 +1,7 @@
 #!/bin/bash
 
-# Init
-sudo apt-get update
-sudo apt-get -y -q upgrade
+sudo apt-get install -y libboost-all-dev libusb-1.0.0-dev libssl-dev cmake libprotobuf-dev protobuf-c-compiler protobuf-compiler libtag1-dev
+sudo apt-get -y install cmake build-essential git
 
 # Apt packages to build aasdk
 sudo apt-get install -y -q --no-install-recommends libboost-all-dev libusb-1.0.0-dev libssl-dev cmake libprotobuf-dev protobuf-c-compiler protobuf-compiler git
@@ -27,21 +26,3 @@ sudo apt-get -y -q install --no-install-recommends pv unzip kpartx zerofree qemu
 
 # Cleanup
 sudo apt-get clean
-
-# Firmware update
-updatecheck=`sudo JUST_CHECK=1 rpi-update | grep commit`
-if [ -z "$updatecheck" ]; then
-    sudo rpi-update
-    echo "############################################################################"
-    echo ""
-    echo "Firmware was updated - please reboot now!"
-    echo "You can run next step after reboot."
-    echo ""
-    echo "############################################################################"
-else
-    echo "############################################################################"
-    echo ""
-    echo "System ready - you can run next step now."
-    echo ""
-    echo "############################################################################"
-fi

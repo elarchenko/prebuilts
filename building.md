@@ -29,39 +29,19 @@
    sudo apt upgrade -y
    sudo apt autoremove -y
 ```
-6. Install Pre-Reqs
-```bash
-   sudo apt-get install -y libboost-all-dev libusb-1.0.0-dev libssl-dev cmake libprotobuf-dev protobuf-c-compiler protobuf-compiler libtag1-dev
-   sudo apt-get -y install cmake build-essential git
-```
-7. Setup Build Environment
+6. Setup Build Environment
 ```bash
 mkdir ~/opencardev
+cd ~/opencardev
 git clone https://github.com/elarchenko/prebuilts.git prebuilts
 cd prebuilts/buildsystem
 ./1_prepare_build_system.sh
 ```
-In case of update request you can try to update once, but can process without it.
-```bash
-sudo ./2_build_aasdk.sh
-```
-In case of errors protobuf should be build:
-```bash
-cd aasdk
-cd protobuf
-sudo mkdir build
-cd build
-sudo cmake ..
-sudo make
-sudo make install
-```
-Continue with building
+7. Build
 ```bash
 ./3_build_ilclient.sh
 ./4_build_qt_latest.sh
 ./5_build_openauto.sh
-./6_build_gpio2kbd.sh
-./7_build_camoverlay.sh
 ./99_copy_compiled_files.sh
 cd ..
 ./update_binaries.sh
